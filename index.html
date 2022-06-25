@@ -8,7 +8,54 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 <body>
-       
+    <header>
+        <div class="highScores">
+            <a href="#">View High Scores</a>
+        </div>
+        <div class="timer">
+            Time: 55
+        </div>
+    </header>
+    <main>
+        <section class="quizStart">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id="startQuiz">Start Quiz</button>
+        </section>
+        <section class="questionView">
+            <div class="questionText">
+                <h1>This is where the question's text will go!</h1>
+            </div>
+            <div class="questionAnswers">
+                <ol>
+                    <li id="choice1">Choice 1</li>
+                    <li id="choice2">Choice 2</li>
+                    <li id="choice3">Choice 3</li>
+                    <li id="choice4">Choice 4</li>
+                </ol>
+            </div>
+            <div class="answerDisplay">
+                <h2>Answer Indication</h2>
+            </div>
+        </section>
+        <section class="highScoresForm">
+            <h2>All done!</h2>
+            <p>Your final score is 22.</p>
+            <form id="hsForm">
+                <label for="initials">Enter Initials:</label>
+                <input type="number" id="initials" placeholder="" name="initials">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="highScores">
+            <h2>High scores</h2>
+            <ul>
+                <li>1. TG - 22</li>
+            </ul>
+            <button class="btn" id="goBackBtn">Go Back</button>
+            <button class="btn" id="clearBtn">Clear High Scores</button>
+        </section>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
