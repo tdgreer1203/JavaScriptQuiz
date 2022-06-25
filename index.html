@@ -8,7 +8,56 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 <body>
-       
+    <header>
+        <div class="menu">
+            <a href="#">View High Scores</a>
+        </div>
+        <div class="timer">
+            Time: 55
+        </div>
+    </header>
+    <main>
+        <section class="quizStart">
+            <h1 class="sectionTitle">Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id="startQuiz" class="btn">Start Quiz</button>
+        </section>
+        <section class="questionView">
+            <div class="questionText">
+                <h1 class="sectionTitle">This is where the question's text will go!</h1>
+            </div>
+            <div class="questionAnswers">
+                <ul class="answerChoices">
+                    <li class="answerChoice" id="choice1">Choice 1</li>
+                    <li class="answerChoice" id="choice2">Choice 2</li>
+                    <li class="answerChoice" id="choice3">Choice 3</li>
+                    <li class="answerChoice" id="choice4">Choice 4</li>
+                </ul>
+            </div>
+            <div class="answerDisplay">
+                <h2>Answer Indication</h2>
+            </div>
+        </section>
+        <section class="highScoresForm">
+            <h1 class="sectionTitle">All done!</h1>
+            <p>Your final score is 22.</p>
+            <form id="hsForm">
+                <label for="initials">Enter Initials:</label>
+                <input type="text" id="initials" placeholder="" name="initials">
+                <button class="form-btn" type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="highScores">
+            <h1 class="sectionTitle">High scores</h1>
+            <ul>
+                <li>1. TG - 22</li>
+            </ul>
+            <div class="hsButtons">
+                <button class="hsBtn" id="goBackBtn">Go Back</button>
+                <button class="hsBtn" id="clearBtn">Clear High Scores</button>
+            </div>
+        </section>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
