@@ -41,6 +41,10 @@ h1 {
 }
 
 /* Utility Styles */
+.hidden {
+    display: none;
+}
+
 .btn {
     color: var(--primary-color);
     padding: 20px 40px;
@@ -210,22 +214,6 @@ header {
 .hsBtn:hover {
     color: var(--secondary-color);
     background-color: var(--primary-color);
-}
-
-.quizStart {
-    display: flex;
-}
-
-.questionView {
-    display: none;
-}
-
-.highScoresForm {
-    display: none;
-}
-
-.highScores {
-    display: none;
 }
 
 @media only screen and (max-width: 875px) {
