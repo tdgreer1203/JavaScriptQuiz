@@ -19,7 +19,7 @@ a {
 }
 
 body {
-    margin: 2% auto;
+    margin: 20vh auto;
     border: 5px solid var(--primary-color);
     border-radius: 50px;
     max-width: 75%;
@@ -128,7 +128,7 @@ header {
 }
 
 
-/* Finished Screen Styles */
+/* High-Scores Form Screen Styles */
 .highScoresForm {
     display: flex;
     flex-direction: column;
@@ -183,6 +183,13 @@ header {
     font-size: 26px;
     margin: 15px 0 5px 10px;
 }
+
+.highScores ul li {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    max-width: 455px;
+}
+
 .hsButtons {
     display: flex;
     width: 50%;
@@ -206,7 +213,7 @@ header {
 }
 
 .quizStart {
-    display: none;
+    display: flex;
 }
 
 .questionView {
@@ -218,5 +225,71 @@ header {
 }
 
 .highScores {
-    display: flex;
+    display: none;
+}
+
+@media only screen and (max-width: 875px) {
+    /* Header Styles */
+    header {
+        font-size: 20px;
+    }
+
+    /* Start Screen*/
+    .quizStart {
+        margin: 0;
+        max-width: 100%;
+        padding-left: 0px 10px;
+        text-align: center;
+    }
+
+    .quizStart p {
+        font-size: 20px;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    /* Questions Screen */
+    .questionAnswers {
+        width: 100%;
+    }
+
+    /* High-Scores Form Screen */
+    .highScoresForm {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    #hsForm {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form-btn {
+        margin-top: 20px;
+        width: 100%;
+        padding: 20px 10px;
+        font-size: 30px;
+    }
+
+    /* High-Scores Display Screen */
+    .highScores {
+        align-items: center;
+    }
+
+    .hsButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hsBtn {
+        padding: 20px 10px;
+        font-size: 26px;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .highScores ul {
+        width: 100%;
+        overflow: hidden;
+    }
 }
