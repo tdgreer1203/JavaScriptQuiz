@@ -1,4 +1,4 @@
-//Question Object
+//Question Object with Answers
 const question = [ {
     questionText: "",
     answers: [
