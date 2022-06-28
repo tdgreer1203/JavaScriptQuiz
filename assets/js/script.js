@@ -67,11 +67,6 @@ const question4 = {
     }]
 };
 
-const highScoreEntry = {
-    initials: "",
-    score: 0
-};
-
 //Section Variables
 var quizStartSection = document.querySelector('.quizStart');
 var questionViewSection = document.querySelector('.questionView');
@@ -84,11 +79,18 @@ var choice1 = document.getElementById('choice1');
 var choice2 = document.getElementById('choice2');
 var choice3 = document.getElementById('choice3');
 var choice4 = document.getElementById('choice4');
+var answerDisplay = document.getElementById('answerDisplay');
+var yourScore = document.getElementById('yourScore');
+var choiceButtons = [choice1, choice2, choice3, choice4];
 
 //Button Variables
 var highScoresBtn = document.getElementById('viewHighScores');
 var startBtn = document.getElementById('startQuiz'); 
 var goBackBtn = document.getElementById('goBackBtn');
+
+//Form Variables
+var initialsField = document.getElementById('initials');
+var hsForm = document.getElementById('hsForm');
 
 //Data Variables
 var timerDisplay = document.getElementById('timer');
@@ -98,6 +100,8 @@ var score = 0;
 var highScores = [];
 var questions = [question1, question2, question3, question4];
 var currentQuestion = 0;
+var score = 0;
+var showTime = null;
 
 highScoresBtn.addEventListener('click', function() {
     showSection(highScoresSection);
@@ -106,7 +110,7 @@ highScoresBtn.addEventListener('click', function() {
 startBtn.addEventListener('click', function() {
     showSection(questionViewSection);
     showQuestion(questions[currentQuestion]);
-    startTimer();
+    showTime = setInterval(startTimer, 1000);
 });
 
 goBackBtn.addEventListener('click', function() {
@@ -114,10 +118,8 @@ goBackBtn.addEventListener('click', function() {
 });
 
 function startTimer() {
-    setInterval(function countDown() {
-        timerDisplay.innerHTML = timeLeft;
-        timeLeft--;
-    }, 1000);
+    timerDisplay.innerHTML = timeLeft;
+    timeLeft--;
 }
 
 function wrongAnswer() {
@@ -154,12 +156,59 @@ function nextQuestion() {
     }
 }
 
-function answerSelected(answer) {
-    console.log(answer);
+function endQuiz() {
+    clearInterval(showTime);
+    yourScore.innerHTML = "Your final score is: " + score + "."; 
+    showSection(highScoresFormSection);
 }
 
-choice1.addEventListener("click", answerSelected(questions[currentQuestion].choices[0].status));
-choice2.addEventListener("click", answerSelected(questions[currentQuestion].choices[1].status));
-choice3.addEventListener("click", answerSelected(questions[currentQuestion].choices[2].status));
-choice4.addEventListener("click", answerSelected(questions[currentQuestion].choices[3].status));
-//Don't forget to define endQuiz()
+function answerSelected(answer) {
+    answerDisplay.classList.remove('hidden');
+    if(answer) {
+        answerDisplay.innerHTML = "<h2 style='color: green;'>Correct</h2>";
+        answerDisplay.style.borderTop = "5px solid green";
+        score++;
+    } else {
+        answerDisplay.innerHTML = "<h2 style='color: red;'>Incorrect</h2>";
+        answerDisplay.style.borderTop = "5px solid red";
+        wrongAnswer();
+    }
+    setTimeout(function() {
+        answerDisplay.classList.add('hidden');
+        nextQuestion();
+    }, 2000);
+}
+
+function addHighScore() {
+    if(!initialsField.value) {
+        alert('Please enter your initials');
+    } else {
+        var newScore = {
+            initials:  initialText,
+            score: score
+        }
+    
+        highScores.push(newScore);
+        showSection(highScoresSection);
+    }
+}
+
+function populateScores() {
+
+}
+
+choice1.addEventListener("click", function() {
+    answerSelected(questions[currentQuestion].choices[0].status);
+});
+
+choice2.addEventListener("click", function() {
+    answerSelected(questions[currentQuestion].choices[1].status);
+});
+
+choice3.addEventListener("click", function() {
+    answerSelected(questions[currentQuestion].choices[2].status);
+});
+
+choice4.addEventListener("click", function() {
+    answerSelected(questions[currentQuestion].choices[3].status);
+});
