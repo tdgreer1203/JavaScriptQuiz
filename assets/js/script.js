@@ -1,5 +1,5 @@
 //Declaring Objects (Question and HighScoreEntry)
-const question = {
+const question1 = {
     text: 'What is the capital of Texas',
     choices: [{
         text: 'Austin',
@@ -14,12 +14,63 @@ const question = {
         text: 'San Antonio',
         status: false
     }]
-}
+};
+
+const question2 = {
+    text: 'What is the capital of Georgia',
+    choices: [{
+        text: 'Atlanta',
+        status: true
+    }, {
+        text: 'Macon',
+        status: false
+    }, {
+        text: 'Augusta',
+        status: false
+    }, {
+        text: 'Columbus',
+        status: false
+    }]
+};
+
+const question3 = {
+    text: 'What is the capital of Louisiana',
+    choices: [{
+        text: 'Baton Rouge',
+        status: true
+    }, {
+        text: 'New Orleans',
+        status: false
+    }, {
+        text: 'Shreveport',
+        status: false
+    }, {
+        text: 'Lafayette',
+        status: false
+    }]
+};
+
+const question4 = {
+    text: 'What is the capital of Alabama',
+    choices: [{
+        text: 'Montgomery',
+        status: true
+    }, {
+        text: 'Birmingham',
+        status: false
+    }, {
+        text: 'Huntsville',
+        status: false
+    }, {
+        text: 'Mobile',
+        status: false
+    }]
+};
 
 const highScoreEntry = {
     initials: "",
     score: 0
-}
+};
 
 //Section Variables
 var quizStartSection = document.querySelector('.quizStart');
@@ -45,14 +96,16 @@ var sectionArray = [quizStartSection, questionViewSection, highScoresFormSection
 var timeLeft = 60;
 var score = 0;
 var highScores = [];
+var questions = [question1, question2, question3, question4];
+var currentQuestion = 0;
 
 highScoresBtn.addEventListener('click', function() {
     showSection(highScoresSection);
 });
 
 startBtn.addEventListener('click', function() {
-    showQuestion(questions[0]);
     showSection(questionViewSection);
+    showQuestion(questions[currentQuestion]);
     startTimer();
 });
 
@@ -84,11 +137,29 @@ function showSection(screen) {
 }
 
 function showQuestion(question) {
-    questionText.text = question.text;
-    choice1.text = question.choices[0].text;
-    choice2.text = question.cohices[0].text;
-    choice3.text = question.choices[0].text;
-    choice4.text = question.choices[0].text;
+    questionText.innerHTML = question.text;
+    choice1.innerHTML = question.choices[0].text;
+    choice2.innerHTML = question.choices[1].text;
+    choice3.innerHTML = question.choices[2].text;
+    choice4.innerHTML = question.choices[3].text;
 }
 
-console.log(testQuestion.text);
+function nextQuestion() {
+    if(currentQuestion < 3) {
+        currentQuestion++;
+        showQuestion(questions[currentQuestion]);
+    }
+    else {
+        endQuiz();
+    }
+}
+
+function answerSelected(answer) {
+    console.log(answer);
+}
+
+choice1.addEventListener("click", answerSelected(questions[currentQuestion].choices[0].status));
+choice2.addEventListener("click", answerSelected(questions[currentQuestion].choices[1].status));
+choice3.addEventListener("click", answerSelected(questions[currentQuestion].choices[2].status));
+choice4.addEventListener("click", answerSelected(questions[currentQuestion].choices[3].status));
+//Don't forget to define endQuiz()
