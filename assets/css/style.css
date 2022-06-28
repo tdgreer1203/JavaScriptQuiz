@@ -56,6 +56,11 @@ h1 {
     background-color: var(--primary-color);
 }
 
+.clearHover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
 /* Header Section Styles */
 header {
     display: flex;

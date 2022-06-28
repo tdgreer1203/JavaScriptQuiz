@@ -13,7 +13,7 @@
             <a href="#" id="viewHighScores">View High Scores</a>
         </div>
         <div class="timer">
-            Time: <span id="timer"></span>
+            Time: <span id="timer">60</span>
         </div>
     </header>
     <main>
@@ -34,13 +34,13 @@
                     <li class="answerChoice" id="choice4">Choice 4</li>
                 </ul>
             </div>
-            <div class="answerDisplay">
+            <div class="answerDisplay" id="answerDisplay">
                 <h2 class="hidden">Answer Indication</h2>
             </div>
         </section>
         <section class="highScoresForm hidden">
             <h1 class="sectionTitle">All done!</h1>
-            <p>Your final score is 22.</p>
+            <p id="yourScore">Your final score is 22.</p>
             <form id="hsForm">
                 <label for="initials">Enter Initials:</label>
                 <input type="text" id="initials" placeholder="" name="initials">
@@ -49,7 +49,7 @@
         </section>
         <section class="highScores hidden">
             <h1 class="sectionTitle">High scores</h1>
-            <ul>
+            <ul id="scoreHolder">
                 <li>1. TG - 22</li>
             </ul>
             <div class="hsButtons">
