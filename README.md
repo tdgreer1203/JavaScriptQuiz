@@ -20,4 +20,4 @@ Made by Theo Greer
 
 ## Screenshots
 
-![Alt text](/assets/img//screenshot.jpg?raw=true)
+![Screenshot](/assets/img//screenshot.jpg?raw=true)
