@@ -8,20 +8,24 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 <body>
+    <!--This is the header that will show on the quiz. The header will hold the high scores button and the timer-->
     <header>
         <div class="menu">
             <a href="#" id="viewHighScores">View High Scores</a>
         </div>
         <div class="timer">
-            Time: <span id="timer">60</span>
+            Time: <span id="timer">30</span>
         </div>
     </header>
     <main>
+        <!--Screen that will allow the user to start the quiz-->
         <section class="quizStart">
             <h1 class="sectionTitle">Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
             <button id="startQuiz" class="btn">Start Quiz</button>
         </section>
+
+        <!--This creen will show the questions and answers, and cycle through until the end-->
         <section class="questionView hidden">
             <div class="questionText">
                 <h1 id="questionText" class="sectionTitle">This is where the question's text will go!</h1>
@@ -38,6 +42,8 @@
                 <h2 class="hidden">Answer Indication</h2>
             </div>
         </section>
+
+        <!--This question displays the form at the end of the exam for the user to put in their initials-->
         <section class="highScoresForm hidden">
             <h1 class="sectionTitle">All done!</h1>
             <p id="yourScore">Your final score is 22.</p>
@@ -47,6 +53,8 @@
                 <button class="form-btn" type="submit">Submit</button>
             </form>
         </section>
+
+        <!--This screen is where the high scores will be shown-->
         <section class="highScores hidden">
             <h1 class="sectionTitle">High scores</h1>
             <ol id="scoreHolder">

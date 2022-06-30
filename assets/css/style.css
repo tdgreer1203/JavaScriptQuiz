@@ -202,7 +202,7 @@ header {
 .highScores ol li {
     background-color: var(--secondary-color);
     padding: 10px;
-    max-width: 735px;
+    max-width: 80%;
 }
 
 .hsButtons {
