@@ -12,8 +12,12 @@ Developing this program to act as an online flash-card system for myself, to pre
 
 ## Website
 
-https://tdgreer1203.github.io/PasswordGenerator/
+https://tdgreer1203.github.io/JavaScriptQuiz/
 
 ## Contribution
 
 Made by Theo Greer
+
+## Screenshots
+
+![Alt text](/assets/img//screenshot.jpg?raw=true)
